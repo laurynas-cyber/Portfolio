@@ -1,6 +1,6 @@
 import { useScroll, animated, useSpring } from "@react-spring/web";
 
-import styles from "./testas.scss";
+import styles from "./styles.module.scss";
 import { useRef } from "react";
 
 const X_LINES = 40;
@@ -32,7 +32,7 @@ export default function Scroll() {
   });
 
   return (
-    <div ref={containerRef} className={"body"}>
+    <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
         <animated.div ref={barContainerRef} className={styles.bar__container}>
           {Array.from({ length: X_LINES }).map((_, i) => (
