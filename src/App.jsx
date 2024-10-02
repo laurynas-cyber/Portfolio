@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Animations from "./Component/Animations/Animations";
 
 import { useSpring, animated } from "@react-spring/web";
@@ -10,10 +10,10 @@ function App() {
 
   return (
     <>
-      <animated.div className="App" style={fade}>
+      {/* <animated.div className="App" style={fade}>
         <Animations />
       </animated.div>
-      <Test />
+      <Test /> */}
       <Scroll />
     </>
   );
