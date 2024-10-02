@@ -4,7 +4,7 @@ import { useSpring, animated } from "@react-spring/web";
 export default function Toggle() {
   const [isToggled, setisToggled] = useState(false);
   const fade = useSpring({
-    opacity: isToggled ? 1 : 0,
+    opacity: isToggled ? 0 : 1,
   });
 
   return (

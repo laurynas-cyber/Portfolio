@@ -20,20 +20,20 @@ function Test() {
   };
 
   //2var/
-  const AnimatedDialog = animated(ExternalComponent);
+  const AnimatedDialog = animated(ExternalComponent); // componento naudojimas
 
   const styles = useSpring({
     from: {
-      opacity: 0,
+      x: 0,
     },
     to: {
-      opacity: 1,
+      x: 100,
     },
   });
 
   return (
     <>
-      <animated.div
+      <animated.div //divo naudojimas
         onClick={handleClick}
         style={{
           width: 80,
