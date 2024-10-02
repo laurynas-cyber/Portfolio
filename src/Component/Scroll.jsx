@@ -1,9 +1,9 @@
 import { useScroll, animated, useSpring } from "@react-spring/web";
 
 import styles from "./styles.module.scss";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-const X_LINES = 40;
+const X_LINES = 30;
 
 const PAGE_COUNT = 5;
 
