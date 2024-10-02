@@ -16,7 +16,6 @@
   align-items: flex-end;
   z-index: 2;
   justify-content: space-between;
-
   &__inverted {
     display: flex;
     flex-direction: column;
@@ -38,13 +37,20 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-
+  display: flex;
   & > * {
     pointer-events: none;
     width: 100%;
     height: 100%;
     position: fixed;
     inset: 0;
+  }
+  .bar__container {
+    margin-right: 100px;
+    width: 98%;
+  }
+  .bar__container__inverted {
+    inset: 0 30px;
   }
 }
 

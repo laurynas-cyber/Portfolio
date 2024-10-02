@@ -1,9 +1,9 @@
 import { useScroll, animated, useSpring } from "@react-spring/web";
 
 import styles from "./styles.module.scss";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
-const X_LINES = 30;
+const X_LINES = 40;
 
 const PAGE_COUNT = 5;
 
@@ -30,7 +30,7 @@ export default function Scroll() {
       immediate: true,
     },
   });
-
+  console.log(Array.from({ length: 20 }));
   return (
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
