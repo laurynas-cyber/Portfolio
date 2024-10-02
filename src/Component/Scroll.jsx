@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const X_LINES = 40;
 
-const PAGE_COUNT = 5;
+const PAGE_COUNT = 3;
 
 const INITIAL_WIDTH = 20;
 
@@ -34,6 +34,18 @@ export default function Scroll() {
   return (
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
+        <animated.div
+          ref={barContainerRef}
+          className={styles.ScrollBar_container}
+        >
+          <div className={styles.pipe}></div>
+        </animated.div>
+        <animated.div
+          ref={barContainerRef}
+          className={styles.ScrollBar_container_inverted}
+        >
+          <div className={styles.pipe}></div>
+        </animated.div>
         <animated.div ref={barContainerRef} className={styles.bar__container}>
           {Array.from({ length: X_LINES }).map((_, i) => (
             <animated.div
