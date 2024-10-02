@@ -3,6 +3,7 @@ import Animations from "./Component/Animations/Animations";
 
 import { useSpring, animated } from "@react-spring/web";
 import Test from "./Component/Animations/Test";
+import Scroll from "./Component/Animations/Scroll";
 
 function App() {
   const fade = useSpring({ from: { opacity: 0 }, opacity: 1 });
@@ -13,6 +14,7 @@ function App() {
         <Animations />
       </animated.div>
       <Test />
+      <Scroll />
     </>
   );
 }
