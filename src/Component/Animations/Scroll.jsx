@@ -32,7 +32,7 @@ export default function Scroll() {
   });
 
   return (
-    <div ref={containerRef} className={styles.body}>
+    <div ref={containerRef} className={"body"}>
       <div className={styles.animated__layers}>
         <animated.div ref={barContainerRef} className={styles.bar__container}>
           {Array.from({ length: X_LINES }).map((_, i) => (
