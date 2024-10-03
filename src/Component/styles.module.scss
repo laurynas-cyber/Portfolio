@@ -139,9 +139,12 @@
   transform: translate(-50%, -50%);
   .about {
     border: solid 1px blue;
-    p {
+    &_content {
       text-align: justify;
       font-size: 25px;
+      span {
+        margin: 5px;
+      }
       img {
         margin: 20px 5px 0px 0px;
         width: 400px;

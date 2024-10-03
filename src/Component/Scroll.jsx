@@ -2,12 +2,12 @@ import { useScroll, animated, useSpring } from "@react-spring/web";
 import img from "../assets/profilio23.jpg";
 import styles from "./styles.module.scss";
 import { useRef } from "react";
-
+import { MdWavingHand } from "react-icons/md";
 const X_LINES = 40;
 
 const PAGE_COUNT = 2;
 
-const INITIAL_WIDTH = 20;
+// const INITIAL_WIDTH = 20;
 
 const TRIANGLES = 11;
 
@@ -38,22 +38,22 @@ export default function Scroll() {
       <div className={styles.animated__layers}>
         <div className={styles.about_container}>
           <div className={styles.about}>
-            <p>
-              <img src={img}></img>
-              <h1>About me</h1>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Cupiditate eaque sunt eos labore eum. Vel sint, et, quam
-              dignissimos nemo recusandae cumque, nam pariatur officia maiores
-              reiciendis magni. Ab sed odit illum sit ipsam omnis minima maiores
-              dignissimos, eius vitae. Odio provident aliquid accusamus dolor
-              vero porro quos, voluptates mollitia labore fugit numquam iste,
-              voluptas, culpa alias maiores. Perspiciatis accusantium quo animi
-              tempore similique sapiente explicabo iusto provident
-              reprehenderit. Ex reprehenderit veritatis doloribus voluptatum
-              delectus eos totam quaerat eaque ea? Quasi ex eaque quas minus,
-              ipsa ullam consequatur reprehenderit similique, explicabo velit
-              sequi dicta ut corrupti vel pariatur beatae doloribus?
-            </p>
+            <div className={styles.about_content}>
+              <h1>About me </h1>
+              <p>
+                <img src={img} alt="profilio"></img>
+                Hello!
+                <span>
+                  <MdWavingHand />
+                </span>
+                My name is Laurynas, motivated and fast learning person. I am
+                responsible, loyal, detail orientated, team player, have
+                analytical skills and efficient problem-solving. I finished
+                Javascript programming courses and have basics and advanced
+                Front-end programming knowledge and hopefully get opportunity
+                apply it to the growth of your company.
+              </p>
+            </div>
           </div>
         </div>
         <animated.div
@@ -99,9 +99,6 @@ export default function Scroll() {
         </animated.div>
         <animated.div
           className={styles.dot}
-          // style={{
-          //   clipPath: scrollYProgress.to((val) => `circle(${val * 100}%)`),
-          // }}
           style={{
             transform: scrollYProgress.to(
               (val) => `translate(-50%, -${val * 50}%)`
