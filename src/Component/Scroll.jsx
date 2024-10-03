@@ -38,22 +38,20 @@ export default function Scroll() {
       <div className={styles.animated__layers}>
         <div className={styles.about_container}>
           <div className={styles.about}>
-            <div className={styles.about_content}>
-              <h1>About me </h1>
-              <p>
-                <img src={img} alt="profilio"></img>
-                Hello!
-                <span>
-                  <MdWavingHand />
-                </span>
-                My name is Laurynas, motivated and fast learning person. I am
-                responsible, loyal, detail orientated, team player, have
-                analytical skills and efficient problem-solving. I finished
-                Javascript programming courses and have basics and advanced
-                Front-end programming knowledge and hopefully get opportunity
-                apply it to the growth of your company.
-              </p>
-            </div>
+            <p>
+              <img src={img} alt="profilio"></img>
+              <span className={styles.me}>About me </span>
+              Hello!
+              <span className={styles.Icon}>
+                <MdWavingHand style={{ marginTop: "10px" }} />
+              </span>
+              My name is Laurynas, motivated and fast learning personality. I am
+              responsible, loyal, detail orientated, team player, have
+              analytical skills and efficient problem-solving. I finished
+              programming courses with Javascript and have basics and advanced
+              Front-end programming knowledge and hopefully get opportunity
+              apply it to the growth of your company.
+            </p>
           </div>
         </div>
         <animated.div
