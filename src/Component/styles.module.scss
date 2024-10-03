@@ -140,14 +140,15 @@
   .about {
     border: solid 1px blue;
     p {
-      border: solid 1px red;
-      text-align: start;
+      text-align: justify;
       font-size: 25px;
       img {
-        border: solid 1px red;
-        margin: 10px 5px 0px 0px;
-        width: 300px;
+        margin: 20px 5px 0px 0px;
+        width: 400px;
         float: inline-start;
+      }
+      h1 {
+        margin-top: 10px;
       }
     }
   }

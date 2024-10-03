@@ -40,6 +40,7 @@ export default function Scroll() {
           <div className={styles.about}>
             <p>
               <img src={img}></img>
+              <h1>About me</h1>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Cupiditate eaque sunt eos labore eum. Vel sint, et, quam
               dignissimos nemo recusandae cumque, nam pariatur officia maiores
@@ -103,7 +104,7 @@ export default function Scroll() {
           // }}
           style={{
             transform: scrollYProgress.to(
-              (val) => `translate(-50%, -${val * 40 + 10}%)`
+              (val) => `translate(-50%, -${val * 50}%)`
             ),
             clipPath: scrollYProgress.to(
               (val) =>
