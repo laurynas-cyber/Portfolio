@@ -30,6 +30,7 @@
 .bar {
   height: 1vh;
   background-color: rgba(255, 255, 255, 0.4);
+  background-color: aqua;
 }
 
 .ScrollBar_container {
@@ -92,15 +93,6 @@
     inset: 0;
   }
 
-  .ScrollBar_container {
-    inset: 0 30px;
-  }
-
-  .ScrollBar_container_inverted {
-    margin-right: 100px;
-    width: 98%;
-  }
-
   .bar__container {
     margin-right: 100px;
     width: 98%;
@@ -111,12 +103,12 @@
 }
 
 .dot {
+  // background-color: #263547;
   background-color: orange;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  clip-path: inset(0% 5% 0% 5%);
-  z-index: 0;
+  // clip-path: inset(0% 5% 0% 5%);
 }
 
 .title {
@@ -132,4 +124,17 @@
       display: block;
     }
   }
+}
+
+.about_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 70%;
+  height: 100%;
+  border: solid 1px red;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

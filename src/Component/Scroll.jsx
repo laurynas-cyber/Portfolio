@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const X_LINES = 40;
 
-const PAGE_COUNT = 3;
+const PAGE_COUNT = 2;
 
 const INITIAL_WIDTH = 20;
 
@@ -22,7 +22,7 @@ export default function Scroll() {
   const { scrollYProgress } = useScroll({
     container: containerRef,
     onChange: ({ value: { scrollYProgress } }) => {
-      if (scrollYProgress > 0.7) {
+      if (scrollYProgress > 0.9) {
         textApi.start({ y: "0" });
       } else {
         textApi.start({ y: "100%" });
@@ -36,6 +36,9 @@ export default function Scroll() {
   return (
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
+        <div className={styles.about_container}>
+         
+        </div>
         <animated.div
           ref={barContainerRef}
           className={styles.ScrollBar_container}
@@ -61,33 +64,22 @@ export default function Scroll() {
             ></animated.div>
           </div>
         </animated.div>
-        <animated.div
-          ref={barContainerRef}
-          className={styles.ScrollBar_container_inverted}
-        >
-          <div className={styles.pipe}>
-            {Array.from({ length: TRIANGLES }).map((_, i) => (
-              <div
-                key={i}
-                className={styles.triangle}
-                style={{ top: `${i * 10}%` }}
-              ></div>
-            ))}
 
-            {Array.from({ length: TRIANGLES }).map((_, i) => (
-              <div
-                key={i}
-                className={styles.triangle_reverse}
-                style={{ top: `${-5 + i * 10}%` }}
-              ></div>
-            ))}
+        <animated.div className={styles.bar__container__inverted}>
+          {Array.from({ length: X_LINES }).map((_, i) => (
             <animated.div
-              className={styles.liquid}
-              style={{ height: scrollYProgress.to((val) => `${val * 100}%`) }}
-            ></animated.div>
-          </div>
+              key={i}
+              className={styles.bar}
+              style={{
+                width: scrollYProgress.to((scrollP) => {
+                  if (i % 3 === 0) {
+                    return scrollP * 40;
+                  } else return 20;
+                }),
+              }}
+            />
+          ))}
         </animated.div>
-
         <animated.div
           className={styles.dot}
           // style={{
@@ -95,7 +87,10 @@ export default function Scroll() {
           // }}
           style={{
             clipPath: scrollYProgress.to(
-              (val) => `inset(${(1 - val) * 100}% 5% ${(1 - val) * 100}% 5%)`
+              (val) =>
+                `inset(${(1 - val) * 100}% ${100 - val * 100}% ${
+                  (1 - val) * 100
+                }% ${105 - val * 100}%`
             ),
           }}
         >
