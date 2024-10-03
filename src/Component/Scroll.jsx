@@ -9,6 +9,8 @@ const PAGE_COUNT = 3;
 
 const INITIAL_WIDTH = 20;
 
+const TRIANGLES = 11;
+
 export default function Scroll() {
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
@@ -38,15 +40,54 @@ export default function Scroll() {
           ref={barContainerRef}
           className={styles.ScrollBar_container}
         >
-          <div className={styles.pipe}></div>
+          <div className={styles.pipe}>
+            {Array.from({ length: TRIANGLES }).map((_, i) => (
+              <div
+                key={i}
+                className={styles.triangle}
+                style={{ top: `${i * 10}%` }}
+              ></div>
+            ))}
+            {Array.from({ length: TRIANGLES }).map((_, i) => (
+              <div
+                key={i}
+                className={styles.triangle_reverse}
+                style={{ top: `${-5 + i * 10}%` }}
+              ></div>
+            ))}
+            <animated.div
+              className={styles.liquid}
+              style={{ height: scrollYProgress.to((val) => `${val * 100}%`) }}
+            ></animated.div>
+          </div>
         </animated.div>
         <animated.div
           ref={barContainerRef}
           className={styles.ScrollBar_container_inverted}
         >
-          <div className={styles.pipe}></div>
+          <div className={styles.pipe}>
+            {Array.from({ length: TRIANGLES }).map((_, i) => (
+              <div
+                key={i}
+                className={styles.triangle}
+                style={{ top: `${i * 10}%` }}
+              ></div>
+            ))}
+
+            {Array.from({ length: TRIANGLES }).map((_, i) => (
+              <div
+                key={i}
+                className={styles.triangle_reverse}
+                style={{ top: `${-5 + i * 10}%` }}
+              ></div>
+            ))}
+            <animated.div
+              className={styles.liquid}
+              style={{ height: scrollYProgress.to((val) => `${val * 100}%`) }}
+            ></animated.div>
+          </div>
         </animated.div>
-        <animated.div ref={barContainerRef} className={styles.bar__container}>
+        {/* <animated.div ref={barContainerRef} className={styles.bar__container}>
           {Array.from({ length: X_LINES }).map((_, i) => (
             <animated.div
               key={i}
@@ -89,7 +130,7 @@ export default function Scroll() {
               }}
             />
           ))}
-        </animated.div>
+        </animated.div> */}
         <animated.div
           className={styles.dot}
           style={{

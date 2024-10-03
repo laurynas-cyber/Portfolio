@@ -34,21 +34,46 @@
 .ScrollBar_container {
   width: 80%;
   z-index: 2;
+  position: relative;
   &_inverted {
-    border: solid 1px red;
     display: flex;
-    align-items: flex-end;
-    z-index: 2;
+    justify-content: flex-end;
+    position: relative;
   }
 }
 
-// .pipe {
-//   width: 20px;
-//   height: 100%;
-//   border: solid 1px white;
-//   border-top: none;
-//   border-bottom: none;
-// }
+.pipe {
+  width: 20px;
+  height: 100%;
+
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+
+  .liquid {
+    background-color: aqua;
+    width: 100%;
+    height: 10%;
+    z-index: 1;
+  }
+}
+
+.triangle {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  background-color: #171717;
+  clip-path: polygon(0% 0%, 80% 50%, 0% 100%, 0% 50%);
+  &_reverse {
+    top: 5%;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background-color: #171717;
+    clip-path: polygon(0% 0%, 80% 50%, 0% 100%, 0% 50%);
+    transform: rotate(180deg);
+  }
+}
 
 .animated__layers {
   width: 100%;
@@ -90,6 +115,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   // clip-path: polygon(0% 0%, 100% 0%, 0% 0%, 100% 0%);
+  z-index: 0;
 }
 
 .title {
