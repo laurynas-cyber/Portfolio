@@ -3,6 +3,7 @@
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .full__page {
@@ -114,7 +115,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // clip-path: polygon(0% 0%, 100% 0%, 0% 0%, 100% 0%);
+  clip-path: inset(0% 5% 0% 5%);
   z-index: 0;
 }
 

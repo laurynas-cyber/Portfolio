@@ -87,54 +87,16 @@ export default function Scroll() {
             ></animated.div>
           </div>
         </animated.div>
-        {/* <animated.div ref={barContainerRef} className={styles.bar__container}>
-          {Array.from({ length: X_LINES }).map((_, i) => (
-            <animated.div
-              key={i}
-              className={styles.bar}
-              style={{
-                width: scrollYProgress.to((scrollP) => {
-                  const percentilePosition = (i + 1) / X_LINES;
 
-                  return (
-                    INITIAL_WIDTH / 4 +
-                    40 *
-                      Math.cos(
-                        ((percentilePosition - scrollP) * Math.PI) / 1.5
-                      ) **
-                        32
-                  );
-                }),
-              }}
-            />
-          ))}
-        </animated.div>
-        <animated.div className={styles.bar__container__inverted}>
-          {Array.from({ length: X_LINES }).map((_, i) => (
-            <animated.div
-              key={i}
-              className={styles.bar}
-              style={{
-                width: scrollYProgress.to((scrollP) => {
-                  const percentilePosition = 1 - (i + 1) / X_LINES;
-
-                  return (
-                    INITIAL_WIDTH / 4 +
-                    40 *
-                      Math.cos(
-                        ((percentilePosition - scrollP) * Math.PI) / 1.5
-                      ) **
-                        32
-                  );
-                }),
-              }}
-            />
-          ))}
-        </animated.div> */}
         <animated.div
           className={styles.dot}
+          // style={{
+          //   clipPath: scrollYProgress.to((val) => `circle(${val * 100}%)`),
+          // }}
           style={{
-            clipPath: scrollYProgress.to((val) => `circle(${val * 100}%)`),
+            clipPath: scrollYProgress.to(
+              (val) => `inset(${(1 - val) * 100}% 5% ${(1 - val) * 100}% 5%)`
+            ),
           }}
         >
           <h1 className={styles.title}>
