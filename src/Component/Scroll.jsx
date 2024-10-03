@@ -1,5 +1,5 @@
 import { useScroll, animated, useSpring } from "@react-spring/web";
-
+import img from "../assets/profilio23.jpg";
 import styles from "./styles.module.scss";
 import { useRef } from "react";
 
@@ -37,7 +37,23 @@ export default function Scroll() {
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
         <div className={styles.about_container}>
-         
+          <div className={styles.about}>
+            <p>
+              <img src={img}></img>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate eaque sunt eos labore eum. Vel sint, et, quam
+              dignissimos nemo recusandae cumque, nam pariatur officia maiores
+              reiciendis magni. Ab sed odit illum sit ipsam omnis minima maiores
+              dignissimos, eius vitae. Odio provident aliquid accusamus dolor
+              vero porro quos, voluptates mollitia labore fugit numquam iste,
+              voluptas, culpa alias maiores. Perspiciatis accusantium quo animi
+              tempore similique sapiente explicabo iusto provident
+              reprehenderit. Ex reprehenderit veritatis doloribus voluptatum
+              delectus eos totam quaerat eaque ea? Quasi ex eaque quas minus,
+              ipsa ullam consequatur reprehenderit similique, explicabo velit
+              sequi dicta ut corrupti vel pariatur beatae doloribus?
+            </p>
+          </div>
         </div>
         <animated.div
           ref={barContainerRef}
@@ -86,6 +102,9 @@ export default function Scroll() {
           //   clipPath: scrollYProgress.to((val) => `circle(${val * 100}%)`),
           // }}
           style={{
+            transform: scrollYProgress.to(
+              (val) => `translate(-50%, -${val * 40 + 10}%)`
+            ),
             clipPath: scrollYProgress.to(
               (val) =>
                 `inset(${(1 - val) * 100}% ${100 - val * 100}% ${
@@ -105,7 +124,9 @@ export default function Scroll() {
         </animated.div>
       </div>
       {new Array(PAGE_COUNT).fill(null).map((_, index) => (
-        <div className={styles.full__page} key={index} />
+        <div className={styles.full__page} key={index}>
+          {" "}
+        </div>
       ))}
     </div>
   );
