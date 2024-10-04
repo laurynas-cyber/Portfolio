@@ -3,6 +3,7 @@ import img from "../assets/profilio23.jpg";
 import styles from "./styles.module.scss";
 import { useRef } from "react";
 import { MdWavingHand } from "react-icons/md";
+import { FaHandPointer } from "react-icons/fa";
 const X_LINES = 40;
 
 const PAGE_COUNT = 2;
@@ -46,11 +47,19 @@ export default function Scroll() {
                 <MdWavingHand style={{ marginTop: "10px" }} />
               </span>
               My name is Laurynas, motivated and fast learning personality. I am
-              responsible, loyal, detail orientated, team player, have
+              responsible, loyal, detail orientated, team player, with
               analytical skills and efficient problem-solving. I finished
               programming courses with Javascript and have basics and advanced
               Front-end programming knowledge and hopefully get opportunity
-              apply it to the growth of your company.
+              apply it to the growth of your company. During my freetime i build
+              projects to explore the possibilities of Javascript.
+              <span className={styles.scroll_text}>
+                Scroll down
+                <span>
+                  <FaHandPointer />
+                </span>
+                to check my portfolio
+              </span>
             </p>
           </div>
         </div>
