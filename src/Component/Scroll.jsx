@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { MdWavingHand } from "react-icons/md";
 import cv from "../assets/CV.pdf";
 import BounceHand from "./BounceHand";
+import { FaHandPointer } from "react-icons/fa";
 const X_LINES = 40;
 
 const PAGE_COUNT = 2;
@@ -21,20 +22,17 @@ export default function Scroll() {
     y: "100%",
   }));
 
-  const text = `My name is Laurynas, motivated and fast learning personality. I am
-  responsible, loyal, detail orientated, team player, with
-  analytical skills and efficient problem-solving. I finished
-  programming courses with Javascript and have basics and advanced
-  Front-End programming knowledge and hopefully get opportunity
-  apply it to the growth of your company. During my freetime I build
-  projects to explore the possibilities of Javascript. Here I want
-  to share my portfolio with you.`;
-  const [letters, setLetters] = useState([]);
+  const text = `My name is Laurynas, motivated and fast learning personality. I am responsible, loyal, detail orientated, team player, with analytical skills and efficient problem-solving. I finished programming courses with Javascript and have basics and advanced Front-End programming knowledge and hopefully get opportunity to apply it to the growth of your company. During my freetime I build projects to explore the possibilities of Javascript. Here I want to share my portfolio with you.`;
+
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    setLetters(text.split(""));
-  }, [text]);
+  const letters = text.split("");
+  const cursorAnimation = useSpring({
+    loop: { reverse: true },
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: { duration: 500 },
+  });
 
   const springs = useSprings(
     letters.length,
@@ -44,7 +42,6 @@ export default function Scroll() {
       config: { duration: 1 }, // Adjust the duration for typing speed
     }))
   );
-
   useEffect(() => {
     if (index < letters.length) {
       const timer = setTimeout(() => {
@@ -53,6 +50,7 @@ export default function Scroll() {
       return () => clearTimeout(timer);
     }
   }, [index, letters.length]);
+
   //----
   const { scrollYProgress } = useScroll({
     container: containerRef,
@@ -79,9 +77,14 @@ export default function Scroll() {
               Hello!
               <MdWavingHand style={{ margin: "0px 5px" }} />
               {springs.map((props, i) => (
-                <animated.span key={i} style={props}>
-                  {letters[i]}
-                </animated.span>
+                <>
+                  <animated.span key={i} style={props}>
+                    {letters[i]}
+                  </animated.span>
+                  {i === index - 1 && (
+                    <animated.span style={cursorAnimation}>|</animated.span>
+                  )}
+                </>
               ))}
               <BounceHand styles={styles} />
             </p>

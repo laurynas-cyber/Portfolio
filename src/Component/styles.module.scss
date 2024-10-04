@@ -36,11 +36,7 @@
   width: 80%;
   z-index: 2;
   position: relative;
-  &_inverted {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-  }
+  margin-left: 5px;
 }
 
 .pipe {
@@ -166,6 +162,7 @@
       display: flex;
       justify-content: center;
       text-decoration: none;
+
       button {
         transform: translateX(20px);
         background-color: orange;
@@ -175,7 +172,8 @@
         pointer-events: all;
         color: #e8e9ed;
         transition: all ease-in 0.3s;
-
+        font-weight: 700;
+        font-size: 1rem;
         &:hover {
           color: #263547;
         }
