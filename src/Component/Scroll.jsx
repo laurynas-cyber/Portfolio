@@ -1,11 +1,13 @@
-import { useScroll, animated, useSpring, useSprings } from "@react-spring/web";
+import { useScroll, animated, useSpring } from "@react-spring/web";
 import img from "../assets/profilio23.jpg";
 import styles from "./styles.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { MdWavingHand } from "react-icons/md";
 import cv from "../assets/CV.pdf";
 import BounceHand from "./BounceHand";
-import { FaHandPointer } from "react-icons/fa";
+
+import TextEffect from "./TextEffect";
+
 const X_LINES = 40;
 
 const PAGE_COUNT = 2;
@@ -22,49 +24,7 @@ export default function Scroll() {
     y: "100%",
   }));
 
-  const text = `My name is Laurynas, motivated and fast learning personality. I am responsible, loyal, detail orientated, team player, with analytical skills and efficient problem-solving. I finished programming courses with Javascript and have basics and advanced Front-End programming knowledge and hopefully get opportunity to apply it to the growth of your company. During my freetime I build projects to explore the possibilities of Javascript. Here I want to share my portfolio with you.`;
 
-  const [index, setIndex] = useState(0);
-
-  const letters = text.split("");
-  const cursorAnimation = useSpring({
-    loop: { reverse: true },
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    config: { duration: 500 },
-  });
-
-  const fade = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    config: { duration: 1500 },
-    delay: 13500,
-  });
-  const springs = useSprings(
-    letters.length,
-    letters.map((_, i) => ({
-      opacity: index > i ? 1 : 0,
-      from: { opacity: 0 },
-      config: { duration: 50 }, // Adjust the duration for typing speed
-    }))
-  );
-  useEffect(() => {
-    if (index < letters.length) {
-      const timer = setTimeout(() => {
-        setIndex((prevIndex) => prevIndex + 1);
-      }, 1); // Delay between each letter being "typed" pirmas var
-      return () => clearTimeout(timer);
-    }
-  }, [index, letters.length]);
-
-  // ANTRAS VAR
-  // const { animatedIndex } = useSpring({
-  //   from: { animatedIndex: 0 },
-  //   to: { animatedIndex: letters.length },
-  //   config: { duration: letters.length * 100 }, // Adjust typing speed here
-  //   onRest: () => setIndex(letters.length), // Ensure final index is set after animation completes
-  //   onChange: ({ value }) => setIndex(Math.floor(value.animatedIndex)), // Control the index increment
-  // });
 
   //----
   const { scrollYProgress } = useScroll({
@@ -91,24 +51,8 @@ export default function Scroll() {
               <span className={styles.me}>About me</span>
               Hello!
               <MdWavingHand style={{ margin: "0px 5px" }} />
-              {springs.map((props, i) => (
-                <>
-                  <animated.span key={"k" + i} style={props}>
-                    {letters[i]}
-                  </animated.span>
-                  {i === index - 1 && (
-                    <animated.span style={cursorAnimation}>|</animated.span>
-                  )}
-                </>
-              ))}
-              {/* {letters.slice(0, index).map((letter, i) => (
-                <animated.span key={i}>{letter}</animated.span>
-              ))} */}
-              {/* Blinking cursor ANTRAS VAR */}
-              {/* <animated.span>|</animated.span> */}
-              <animated.span style={fade}>
-                <BounceHand styles={styles} />
-              </animated.span>
+              <TextEffect />
+              <BounceHand styles={styles} />
             </p>
             <a
               href={cv}
