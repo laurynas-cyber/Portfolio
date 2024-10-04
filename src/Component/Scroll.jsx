@@ -1,9 +1,10 @@
-import { useScroll, animated, useSpring } from "@react-spring/web";
+import { useScroll, animated, useSpring, useSprings } from "@react-spring/web";
 import img from "../assets/profilio23.jpg";
 import styles from "./styles.module.scss";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdWavingHand } from "react-icons/md";
-import { FaHandPointer } from "react-icons/fa";
+import cv from "../assets/CV.pdf";
+import BounceHand from "./BounceHand";
 const X_LINES = 40;
 
 const PAGE_COUNT = 2;
@@ -20,6 +21,39 @@ export default function Scroll() {
     y: "100%",
   }));
 
+  const text = `My name is Laurynas, motivated and fast learning personality. I am
+  responsible, loyal, detail orientated, team player, with
+  analytical skills and efficient problem-solving. I finished
+  programming courses with Javascript and have basics and advanced
+  Front-End programming knowledge and hopefully get opportunity
+  apply it to the growth of your company. During my freetime I build
+  projects to explore the possibilities of Javascript. Here I want
+  to share my portfolio with you.`;
+  const [letters, setLetters] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setLetters(text.split(""));
+  }, [text]);
+
+  const springs = useSprings(
+    letters.length,
+    letters.map((_, i) => ({
+      opacity: index > i ? 1 : 0,
+      from: { opacity: 0 },
+      config: { duration: 1 }, // Adjust the duration for typing speed
+    }))
+  );
+
+  useEffect(() => {
+    if (index < letters.length) {
+      const timer = setTimeout(() => {
+        setIndex(index + 1);
+      }, 1); // Delay between each letter being "typed"
+      return () => clearTimeout(timer);
+    }
+  }, [index, letters.length]);
+  //----
   const { scrollYProgress } = useScroll({
     container: containerRef,
     onChange: ({ value: { scrollYProgress } }) => {
@@ -33,7 +67,7 @@ export default function Scroll() {
       immediate: true,
     },
   });
-  console.log(Array.from({ length: 20 }));
+
   return (
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
@@ -43,24 +77,21 @@ export default function Scroll() {
               <img src={img} alt="profilio"></img>
               <span className={styles.me}>About me </span>
               Hello!
-              <span className={styles.Icon}>
-                <MdWavingHand style={{ marginTop: "10px" }} />
-              </span>
-              My name is Laurynas, motivated and fast learning personality. I am
-              responsible, loyal, detail orientated, team player, with
-              analytical skills and efficient problem-solving. I finished
-              programming courses with Javascript and have basics and advanced
-              Front-end programming knowledge and hopefully get opportunity
-              apply it to the growth of your company. During my freetime i build
-              projects to explore the possibilities of Javascript.
-              <span className={styles.scroll_text}>
-                Scroll down
-                <span>
-                  <FaHandPointer />
-                </span>
-                to check my portfolio
-              </span>
+              <MdWavingHand style={{ margin: "0px 5px" }} />
+              {springs.map((props, i) => (
+                <animated.span key={i} style={props}>
+                  {letters[i]}
+                </animated.span>
+              ))}
+              <BounceHand styles={styles} />
             </p>
+            <a
+              href={cv}
+              download="LaurynasStanciauskasCV.pdf"
+              className={styles.cv_container}
+            >
+              <button>Download CV</button>
+            </a>
           </div>
         </div>
         <animated.div
@@ -108,7 +139,7 @@ export default function Scroll() {
           className={styles.dot}
           style={{
             transform: scrollYProgress.to(
-              (val) => `translate(-50%, -${val * 50}%)`
+              (val) => `translate(-${52 - 2 * val}%, -${-20 + 70 * val}%)`
             ),
             clipPath: scrollYProgress.to(
               (val) =>
