@@ -24,8 +24,6 @@ export default function Scroll() {
     y: "100%",
   }));
 
-
-
   //----
   const { scrollYProgress } = useScroll({
     container: containerRef,
@@ -118,14 +116,24 @@ export default function Scroll() {
             ),
           }}
         >
-          <h1 className={styles.title}>
+          <div className={styles.item}>
+            <div className={styles.portfolio_container}>
+              <div className={styles.portfolio_filter}>
+                <button>All</button>
+                <button>Browsers</button>
+                <button>Games</button>
+              </div>
+              <div className={styles.portfolio_content}></div>
+            </div>
+          </div>
+          {/* <h1 className={styles.title}>
             <span>
               <animated.span style={textStyles}>Aha!</animated.span>
             </span>
             <span>
               <animated.span style={textStyles}>You found me!</animated.span>
             </span>
-          </h1>
+          </h1> */}
         </animated.div>
       </div>
       {new Array(PAGE_COUNT).fill(null).map((_, index) => (

@@ -105,6 +105,38 @@
   left: 50%;
   transform: translate(-50%, -30%);
   // clip-path: inset(0% 5% 0% 5%);
+  .item {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .portfolio_container {
+      height: 80%;
+      width: 90%;
+      border: solid 1px red;
+      .portfolio_filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+
+        & > button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          pointer-events: all;
+          font-size: 30px;
+          color: #e8e9ed;
+          text-decoration: none;
+          transition: all ease-in 0.3s;
+        }
+        button:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 .title {
