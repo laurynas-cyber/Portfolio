@@ -7,6 +7,7 @@ import cv from "../assets/CV.pdf";
 import BounceHand from "./BounceHand";
 
 import TextEffect from "./TextEffect";
+import CardsWrapper from "./Cards/CardsWrapper";
 
 const X_LINES = 40;
 
@@ -19,7 +20,7 @@ const TRIANGLES = 11;
 export default function Scroll() {
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
-
+  
   const [textStyles, textApi] = useSpring(() => ({
     y: "100%",
   }));
@@ -104,17 +105,17 @@ export default function Scroll() {
         </animated.div>
         <animated.div
           className={styles.dot}
-          style={{
-            transform: scrollYProgress.to(
-              (val) => `translate(-${52 - 2 * val}%, -${-20 + 70 * val}%)`
-            ),
-            clipPath: scrollYProgress.to(
-              (val) =>
-                `inset(${(1 - val) * 100}% ${100 - val * 100}% ${
-                  (1 - val) * 100
-                }% ${105 - val * 100}%`
-            ),
-          }}
+          // style={{
+          //   transform: scrollYProgress.to(
+          //     (val) => `translate(-${52 - 2 * val}%, -${-20 + 70 * val}%)`
+          //   ),
+          //   clipPath: scrollYProgress.to(
+          //     (val) =>
+          //       `inset(${(1 - val) * 100}% ${100 - val * 100}% ${
+          //         (1 - val) * 100
+          //       }% ${105 - val * 100}%`
+          //   ),
+          // }}
         >
           <div className={styles.item}>
             <div className={styles.portfolio_container}>
@@ -133,7 +134,7 @@ export default function Scroll() {
                 </animated.button>
               </div>
               <div className={styles.portfolio_content}>
-                
+                <CardsWrapper/>
               </div>
             </div>
           </div>

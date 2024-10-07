@@ -103,7 +103,7 @@
   background-color: orange;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -50%);
   // clip-path: inset(0% 5% 0% 5%);
   .item {
     width: 90%;
@@ -115,6 +115,19 @@
       height: 80%;
       width: 90%;
       border: solid 1px red;
+      display: flex;
+      flex-direction: column;
+      .portfolio_content {
+   
+        max-height: 100%;
+        height: max-content;
+        flex-grow: 1;
+        background: lightblue;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       .portfolio_filter {
         display: flex;
         justify-content: center;
