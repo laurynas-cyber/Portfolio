@@ -1,7 +1,7 @@
 import { useScroll, animated, useSpring } from "@react-spring/web";
 import img from "../assets/profilio23.jpg";
 import styles from "./styles.module.scss";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { MdWavingHand } from "react-icons/md";
 import cv from "../assets/CV.pdf";
 import BounceHand from "./BounceHand";
@@ -20,7 +20,7 @@ const TRIANGLES = 11;
 export default function Scroll() {
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
-  
+  const [open, set] = useState(false);
   const [textStyles, textApi] = useSpring(() => ({
     y: "100%",
   }));
@@ -31,7 +31,9 @@ export default function Scroll() {
     onChange: ({ value: { scrollYProgress } }) => {
       if (scrollYProgress > 0.9) {
         textApi.start({ y: "0" });
+        set(true)
       } else {
+        set(false)
         textApi.start({ y: "100%" });
       }
     },
@@ -105,19 +107,19 @@ export default function Scroll() {
         </animated.div>
         <animated.div
           className={styles.dot}
-          // style={{
-          //   transform: scrollYProgress.to(
-          //     (val) => `translate(-${52 - 2 * val}%, -${-20 + 70 * val}%)`
-          //   ),
-          //   clipPath: scrollYProgress.to(
-          //     (val) =>
-          //       `inset(${(1 - val) * 100}% ${100 - val * 100}% ${
-          //         (1 - val) * 100
-          //       }% ${105 - val * 100}%`
-          //   ),
-          // }}
+          style={{
+            transform: scrollYProgress.to(
+              (val) => `translate(-${52 - 2 * val}%, -${-20 + 70 * val}%)`
+            ),
+            clipPath: scrollYProgress.to(
+              (val) =>
+                `inset(${(1 - val) * 100}% ${100 - val * 100}% ${
+                  (1 - val) * 100
+                }% ${105 - val * 100}%`
+            ),
+          }}
         >
-          <div className={styles.item}>
+          <div className={styles.dot_item}>
             <div className={styles.portfolio_container}>
               <div className={styles.portfolio_filter}>
                 <animated.button style={textStyles}>
@@ -133,19 +135,12 @@ export default function Scroll() {
                   <span className={styles.btn_text_transition}>Games </span>
                 </animated.button>
               </div>
-              <div className={styles.portfolio_content}>
-                <CardsWrapper/>
-              </div>
+         
+                <CardsWrapper open={open} set={set}/>
+              
             </div>
           </div>
-          {/* <h1 className={styles.title}>
-            <span>
-              <animated.span style={textStyles}>Aha!</animated.span>
-            </span>
-            <span>
-              <animated.span style={textStyles}>You found me!</animated.span>
-            </span>
-          </h1> */}
+
         </animated.div>
       </div>
       {new Array(PAGE_COUNT).fill(null).map((_, index) => (

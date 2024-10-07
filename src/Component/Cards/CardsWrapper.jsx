@@ -11,19 +11,11 @@ import {
 import data from "./data";
 import styles from "../styles.module.scss";
 
-export default function CardsWrapper() {
-  const [open, set] = useState(false);
+export default function CardsWrapper({open, set}) {
+
 
   const springApi = useSpringRef();
-  const { size, ...rest } = useSpring({
-    ref: springApi,
-    config: config.stiff,
-    from: { size: "20%", background: "hotpink" },
-    to: {
-      size: open ? "100%" : "20%",
-      background: open ? "white" : "hotpink",
-    },
-  });
+
 
   const transApi = useSpringRef();
   const transition = useTransition(open ? data : [], {
@@ -41,16 +33,16 @@ export default function CardsWrapper() {
   ]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.portfolio_content}>
       <animated.div
-        style={{ ...rest, width: size, height: size }}
-        className={styles.container}
-        onClick={() => set((open) => !open)}
+      
+        className={styles.wrap_container}
+       
       >
         {transition((style, item) => (
           <animated.div
-            className={styles.item}
-            style={{ ...style, background: item.css }}
+            className={styles.warp_item}
+            style={{ ...style, background: "red", height: "10px" }}
           />
         ))}
       </animated.div>

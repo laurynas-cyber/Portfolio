@@ -1,3 +1,6 @@
+@import "./Cards/portfolio.scss";
+
+
 .body {
   background-color: #171717;
   height: 100%;
@@ -105,7 +108,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   // clip-path: inset(0% 5% 0% 5%);
-  .item {
+  &_item {
     width: 90%;
     height: 100%;
     display: flex;
@@ -114,9 +117,9 @@
     .portfolio_container {
       height: 80%;
       width: 90%;
-      border: solid 1px red;
       display: flex;
       flex-direction: column;
+      gap: 5px;
       .portfolio_content {
    
         max-height: 100%;
