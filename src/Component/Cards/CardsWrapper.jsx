@@ -11,12 +11,7 @@ import {
 import data from "./data";
 import styles from "../styles.module.scss";
 
-export default function CardsWrapper({open, set}) {
-
-
-  const springApi = useSpringRef();
-
-
+export default function CardsWrapper({ open }) {
   const transApi = useSpringRef();
   const transition = useTransition(open ? data : [], {
     ref: transApi,
@@ -27,22 +22,15 @@ export default function CardsWrapper({open, set}) {
   });
 
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
-  useChain(open ? [springApi, transApi] : [transApi, springApi], [
-    0,
-    open ? 0.1 : 0.6,
-  ]);
+  useChain([transApi], [0, open ? 0.1 : 0.6]);
 
   return (
     <div className={styles.portfolio_content}>
-      <animated.div
-      
-        className={styles.wrap_container}
-       
-      >
+      <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
           <animated.div
             className={styles.warp_item}
-            style={{ ...style, background: "red", height: "10px" }}
+            style={{ ...style, background: item.css }}
           />
         ))}
       </animated.div>

@@ -31,9 +31,9 @@ export default function Scroll() {
     onChange: ({ value: { scrollYProgress } }) => {
       if (scrollYProgress > 0.9) {
         textApi.start({ y: "0" });
-        set(true)
+        set(true);
       } else {
-        set(false)
+        set(false);
         textApi.start({ y: "100%" });
       }
     },
@@ -60,7 +60,9 @@ export default function Scroll() {
               download="LaurynasStanciauskasCV.pdf"
               className={styles.cv_container}
             >
-              <button>Download CV</button>
+              <button style={{ pointerEvents: open ? "none" : "all" }}>
+                Download CV
+              </button>
             </a>
           </div>
         </div>
@@ -135,12 +137,10 @@ export default function Scroll() {
                   <span className={styles.btn_text_transition}>Games </span>
                 </animated.button>
               </div>
-         
-                <CardsWrapper open={open} set={set}/>
-              
+
+              <CardsWrapper open={open} />
             </div>
           </div>
-
         </animated.div>
       </div>
       {new Array(PAGE_COUNT).fill(null).map((_, index) => (
