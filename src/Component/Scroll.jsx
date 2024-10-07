@@ -119,11 +119,22 @@ export default function Scroll() {
           <div className={styles.item}>
             <div className={styles.portfolio_container}>
               <div className={styles.portfolio_filter}>
-                <button>All</button>
-                <button>Browsers</button>
-                <button>Games</button>
+                <animated.button style={textStyles}>
+                  <span className={styles.line}></span>{" "}
+                  <span className={styles.btn_text_transition}>All </span>
+                </animated.button>
+                <animated.button style={textStyles}>
+                  <span className={styles.line}></span>
+                  <span className={styles.btn_text_transition}>Browsers</span>
+                </animated.button>
+                <animated.button style={textStyles}>
+                  <span className={styles.line}></span>
+                  <span className={styles.btn_text_transition}>Games </span>
+                </animated.button>
               </div>
-              <div className={styles.portfolio_content}></div>
+              <div className={styles.portfolio_content}>
+                
+              </div>
             </div>
           </div>
           {/* <h1 className={styles.title}>
