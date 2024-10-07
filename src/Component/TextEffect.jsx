@@ -1,9 +1,9 @@
-import { useSprings, animated, useSpring } from "@react-spring/web";
+import { useSprings, animated } from "@react-spring/web";
 import React, { useEffect, useState } from "react";
 import CursorAnimation from "./CursorAnimation";
 
 export default function TextEffect() {
-  const text = `My name is Laurynas, motivated and fast learning personality. I am responsible, loyal, detail orientated, team player, with analytical skills and efficient problem-solving. I finished programming courses with Javascript and have basics and advanced Front-End programming knowledge and hopefully get opportunity to apply it to the growth of your company. During my freetime I build projects to explore the possibilities of Javascript and here I want to share my portfolio with you.`;
+  const text = `My name is Laurynas, motivated and fast learning personality. I am responsible, loyal, detail orientated, team player, with analytical skills and efficient problem-solving. I finished programming courses with {Javascript} and have basics and advanced Front-End programming knowledge and hopefully get opportunity to apply it to the growth of successfull company. During my freetime I build projects to explore the possibilities of {Javascript} and here I want to share my portfolio with you.`;
 
   const [index, setIndex] = useState(0);
 
