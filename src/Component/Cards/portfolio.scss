@@ -37,6 +37,7 @@
   background: lightblue;
   border-radius: 5px;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
+  border: solid 1px red;
 }
 
 .warp_item {
@@ -50,7 +51,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-
+  border: solid 1px red;
   .warp_item_link {
     overflow: hidden;
     height: 70%;
@@ -92,7 +93,7 @@
     .warp_item_technologies_list {
       height: 100%;
       width: 100%;
-      
+
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: 1fr 1fr;

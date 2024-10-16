@@ -9,10 +9,12 @@ import data from "../../data/data.js";
 import styles from "../styles.module.scss";
 import { FaGithub } from "react-icons/fa";
 import TechnoList from "./TechnoList.jsx";
+import { useState } from "react";
 
 export default function CardsWrapper({ open, textStyles }) {
+  const [projects, setProjects] = useState(data);
   const transApi = useSpringRef();
-  const transition = useTransition(open ? data : [], {
+  const transition = useTransition(open ? projects : [], {
     ref: transApi,
     trail: 400 / data.length,
     from: { opacity: 0, scale: 0 },
@@ -23,12 +25,26 @@ export default function CardsWrapper({ open, textStyles }) {
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
   useChain([transApi], [0, open ? 0.1 : 0.6]);
 
+  const displayBrowsers = (_) => {
+    setProjects([]);
+    setTimeout((_) => {
+      setProjects([data[4]]);
+
+    }, 1000);
+  };
+
   return (
     <div className={styles.portfolio_content}>
       <div className={styles.profolio_content_filter}>
-        <animated.button style={textStyles}>All</animated.button>
-        <animated.button style={textStyles}>Browsers</animated.button>
-        <animated.button style={textStyles}>Games</animated.button>
+        <animated.button style={textStyles} onClick={(_) => setProjects(data)}>
+          All
+        </animated.button>
+        <animated.button style={textStyles} onClick={displayBrowsers}>
+          Browsers
+        </animated.button>
+        <animated.button style={textStyles} onClick={(_) => setProjects([])}>
+          Games
+        </animated.button>
       </div>
       <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
@@ -39,10 +55,7 @@ export default function CardsWrapper({ open, textStyles }) {
               className={styles.warp_item_link}
             >
               <img src={item.css} alt={item.name} />
-              <div
-                className={styles.warp_item_technologies}
-             
-              >
+              <div className={styles.warp_item_technologies}>
                 <div className={styles.warp_item_technologies_wrapper}>
                   <a href={item.gitlink} target="_blank">
                     <FaGithub />
