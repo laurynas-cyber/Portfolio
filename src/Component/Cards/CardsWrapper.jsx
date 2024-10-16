@@ -54,7 +54,13 @@ export default function CardsWrapper({ open, textStyles }) {
                   <a href="">
                     <FaGithub />
                   </a>
-                  <div className={styles.warp_item_technologies_list}></div>
+                  <div className={styles.warp_item_technologies_list}>
+                    <div>React</div>
+                    <div>Javascript</div>
+                    <div>Node.js</div>
+                    <div>MySql</div>
+                    <div>Sass</div>
+                  </div>
                 </div>
               </div>
             </a>
