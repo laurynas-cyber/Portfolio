@@ -91,9 +91,12 @@
     .warp_item_technologies_list {
       height: 100%;
       width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      // display: flex;
+      // flex-wrap: wrap;
+      // justify-content: space-around;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr 1fr;
       pointer-events: none;
       div {
         font-size: 1.2em;
@@ -102,6 +105,9 @@
         align-items: center;
         pointer-events: none;
         color: #263547;
+      }
+      div:nth-child(3):nth-last-child(1) {
+        grid-column: span 2;
       }
     }
     a {

@@ -51,15 +51,13 @@ export default function CardsWrapper({ open, textStyles }) {
                 // style={{ bottom: isHover ? "0px" : "100px" }}
               >
                 <div className={styles.warp_item_technologies_wrapper}>
-                  <a href="">
+                  <a href={item.gitlink} target="_blank">
                     <FaGithub />
                   </a>
                   <div className={styles.warp_item_technologies_list}>
-                    <div>React</div>
-                    <div>Javascript</div>
-                    <div>Node.js</div>
-                    <div>MySql</div>
-                    <div>Sass</div>
+                    {item.techno.map((t, i) => (
+                      <div>{t}</div>
+                    ))}
                   </div>
                 </div>
               </div>
