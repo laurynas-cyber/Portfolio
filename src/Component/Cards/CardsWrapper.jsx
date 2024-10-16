@@ -1,4 +1,3 @@
-
 import {
   useTransition,
   useChain,
@@ -31,10 +30,16 @@ export default function CardsWrapper({ open, textStyles }) {
       </div>
       <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
-          <animated.div className={styles.warp_item} style={{ ...style }}>
+          <animated.a
+            className={styles.warp_item}
+            href={item.link}
+            style={{ ...style }}
+            target="_blank"
+          >
             <img src={item.css} alt={item.name} />
-          </animated.div>
+          </animated.a>
         ))}
+        
       </animated.div>
     </div>
   );

@@ -4,36 +4,42 @@ import rock from "../assets/Rock.jpg";
 import clock from "../assets/Clock.jpg";
 import matrix from "../assets/Matrixgame.jpg";
 import jobs from "../assets/jobs.jpg";
+import recovery from "../assets/recovery.jpg";
 
 const data = [
   {
     name: "TicTac",
     css: tictac,
-    height: 200,
+    link: "https://laurynas-cyber.github.io/X-and-O/",
   },
   {
     name: "Ships",
     css: ship,
-    height: 200,
+    link: "https://battleships-0bki.onrender.com/",
   },
   {
     name: "rock",
     css: rock,
-    height: 200,
+    link: "https://laurynas-cyber.github.io/RockPaperScissors/",
   },
   {
     name: "clock",
     css: clock,
-    height: 200,
+    link: "https://laurynas-cyber.github.io/Clock/",
   },
   {
     name: "matrix",
     css: matrix,
-    height: 200,
+    link: "https://laurynas-cyber.github.io/Matrix-Game/",
   },
   {
     name: "jobs",
     css: jobs,
+    link: "https://jobslink-react.onrender.com/",
+  },
+  {
+    name: "recovery",
+    css: recovery,
     height: 200,
   },
 ];
