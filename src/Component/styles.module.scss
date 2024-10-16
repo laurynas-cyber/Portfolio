@@ -120,7 +120,6 @@
       display: flex;
       flex-direction: column;
       gap: 5px;
-      border: solid 1px red;
 
       .portfolio_content {
         max-height: 100%;
@@ -150,6 +149,7 @@
           text-decoration: none;
           position: relative;
           overflow: hidden;
+          font-weight: 700;
           .line {
             width: 100%;
             height: 100%;

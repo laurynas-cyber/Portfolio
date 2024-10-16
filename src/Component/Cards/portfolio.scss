@@ -5,7 +5,25 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  gap: 5px;
+  .profolio_content_filter {
+    border: solid 1px red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30%;
+
+    button {
+      cursor: pointer;
+      pointer-events: all;
+      border: none;
+      background-color: transparent;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
 }
 
 .wrap_container {
@@ -25,8 +43,17 @@
 
 .warp_item {
   width: 100%;
-  height: 100%;
+  // height: 100%;
+
   background: #e8e9ed;
   border-radius: 5px;
   will-change: transform, opacity;
+  overflow: hidden;
+  pointer-events: all;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

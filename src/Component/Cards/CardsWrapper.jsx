@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+
 import {
   useTransition,
-  useSpring,
   useChain,
-  config,
   animated,
   useSpringRef,
 } from "@react-spring/web";
 
-import data from "./data";
+import data from "../../data/data.js";
 import styles from "../styles.module.scss";
 
-export default function CardsWrapper({ open }) {
+export default function CardsWrapper({ open, textStyles }) {
   const transApi = useSpringRef();
   const transition = useTransition(open ? data : [], {
     ref: transApi,
@@ -26,12 +24,16 @@ export default function CardsWrapper({ open }) {
 
   return (
     <div className={styles.portfolio_content}>
+      <div className={styles.profolio_content_filter}>
+        <animated.button style={textStyles}>All</animated.button>
+        <animated.button style={textStyles}>Browsers</animated.button>
+        <animated.button style={textStyles}>Games</animated.button>
+      </div>
       <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
-          <animated.div
-            className={styles.warp_item}
-            style={{ ...style, background: item.css }}
-          />
+          <animated.div className={styles.warp_item} style={{ ...style }}>
+            <img src={item.css} alt={item.name} />
+          </animated.div>
         ))}
       </animated.div>
     </div>
