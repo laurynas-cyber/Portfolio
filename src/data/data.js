@@ -52,7 +52,7 @@ const data = [
   {
     name: "recovery",
     css: recovery,
-    height: 200,
+    link: "",
     techno: [
       "Bootstrap",
       "SASS",

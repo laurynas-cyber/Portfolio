@@ -6,10 +6,9 @@ import {
 } from "@react-spring/web";
 
 import data from "../../data/data.js";
-import dataCSS from "../../data/dataCSS.js";
-import rand from "../../data/rand.js";
 import styles from "../styles.module.scss";
 import { FaGithub } from "react-icons/fa";
+import TechnoList from "./TechnoList.jsx";
 
 export default function CardsWrapper({ open, textStyles }) {
   const transApi = useSpringRef();
@@ -42,25 +41,13 @@ export default function CardsWrapper({ open, textStyles }) {
               <img src={item.css} alt={item.name} />
               <div
                 className={styles.warp_item_technologies}
-                // style={{ bottom: isHover ? "0px" : "100px" }}
+             
               >
                 <div className={styles.warp_item_technologies_wrapper}>
                   <a href={item.gitlink} target="_blank">
                     <FaGithub />
                   </a>
-                  <div className={styles.warp_item_technologies_list}>
-                    {item.techno.map((t, i) => (
-                      <div
-                        style={{
-                          background: dataCSS[rand(0, dataCSS.length - 1)],
-                          backgroundClip: "text",
-                          color: "transparent",
-                        }}
-                      >
-                        {t}
-                      </div>
-                    ))}
-                  </div>
+                  <TechnoList styles={styles} arrData={item.techno} />
                 </div>
               </div>
             </a>
