@@ -7,8 +7,16 @@ import {
 
 import data from "../../data/data.js";
 import styles from "../styles.module.scss";
+import { FaGithub } from "react-icons/fa";
+import { useState } from "react";
 
 export default function CardsWrapper({ open, textStyles }) {
+  const [isHover, setIsHover] = useState(false);
+
+  const handleHover = (e) => {
+    setIsHover(true);
+  };
+
   const transApi = useSpringRef();
   const transition = useTransition(open ? data : [], {
     ref: transApi,
@@ -30,16 +38,28 @@ export default function CardsWrapper({ open, textStyles }) {
       </div>
       <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
-          <animated.a
-            className={styles.warp_item}
-            href={item.link}
-            style={{ ...style }}
-            target="_blank"
-          >
-            <img src={item.css} alt={item.name} />
-          </animated.a>
+          <animated.div className={styles.warp_item} style={{ ...style }}>
+            <a
+              onMouseEnter={handleHover}
+              href={item.link}
+              target="_blank"
+              className={styles.warp_item_link}
+            >
+              <img src={item.css} alt={item.name} />
+              <div
+                className={styles.warp_item_technologies}
+                // style={{ bottom: isHover ? "0px" : "100px" }}
+              >
+                <div className={styles.warp_item_technologies_wrapper}>
+                  <a href="">
+                    <FaGithub />
+                  </a>
+                  <div className={styles.warp_item_technologies_list}></div>
+                </div>
+              </div>
+            </a>
+          </animated.div>
         ))}
-        
       </animated.div>
     </div>
   );
