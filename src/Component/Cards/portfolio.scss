@@ -88,6 +88,7 @@
     display: flex;
     align-items: center;
     pointer-events: all;
+    background-color: #263547;
     .warp_item_technologies_list {
       height: 100%;
       width: 100%;
@@ -98,6 +99,7 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: 1fr 1fr;
       pointer-events: none;
+
       div {
         font-size: 1.2em;
         display: flex;
@@ -105,6 +107,10 @@
         align-items: center;
         pointer-events: none;
         color: #263547;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
       div:nth-child(3):nth-last-child(1) {
         grid-column: span 2;
@@ -116,8 +122,8 @@
       height: 100%;
       display: flex;
       align-items: center;
-      color: #263547;
-      margin-left: 5px;
+      color: #e8e9ed;
+      margin: 5px;
       transition: all ease 0.3s;
       &:hover {
         color: orange;

@@ -6,17 +6,12 @@ import {
 } from "@react-spring/web";
 
 import data from "../../data/data.js";
+import dataCSS from "../../data/dataCSS.js";
+import rand from "../../data/rand.js";
 import styles from "../styles.module.scss";
 import { FaGithub } from "react-icons/fa";
-import { useState } from "react";
 
 export default function CardsWrapper({ open, textStyles }) {
-  const [isHover, setIsHover] = useState(false);
-
-  const handleHover = (e) => {
-    setIsHover(true);
-  };
-
   const transApi = useSpringRef();
   const transition = useTransition(open ? data : [], {
     ref: transApi,
@@ -40,7 +35,6 @@ export default function CardsWrapper({ open, textStyles }) {
         {transition((style, item) => (
           <animated.div className={styles.warp_item} style={{ ...style }}>
             <a
-              onMouseEnter={handleHover}
               href={item.link}
               target="_blank"
               className={styles.warp_item_link}
@@ -56,7 +50,15 @@ export default function CardsWrapper({ open, textStyles }) {
                   </a>
                   <div className={styles.warp_item_technologies_list}>
                     {item.techno.map((t, i) => (
-                      <div>{t}</div>
+                      <div
+                        style={{
+                          background: dataCSS[rand(0, dataCSS.length - 1)],
+                          backgroundClip: "text",
+                          color: "transparent",
+                        }}
+                      >
+                        {t}
+                      </div>
                     ))}
                   </div>
                 </div>
