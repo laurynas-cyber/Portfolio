@@ -13,6 +13,7 @@ const data = [
     link: "https://laurynas-cyber.github.io/X-and-O/",
     techno: ["HTML", "CSS", "Javascript"],
     gitlink: "https://github.com/laurynas-cyber/X-and-O",
+    type: "game",
   },
   {
     name: "Ships",
@@ -20,6 +21,7 @@ const data = [
     link: "https://battleships-0bki.onrender.com/",
     techno: ["HTML", "CSS", "Javascript", "Node.js"],
     gitlink: "https://github.com/laurynas-cyber/BattleShips",
+    type: "game",
   },
   {
     name: "rock",
@@ -27,6 +29,7 @@ const data = [
     link: "https://laurynas-cyber.github.io/RockPaperScissors/",
     techno: ["HTML", "CSS", "Javascript"],
     gitlink: "https://github.com/laurynas-cyber/RockPaperScissors",
+    type: "game",
   },
   {
     name: "clock",
@@ -41,6 +44,7 @@ const data = [
     link: "https://laurynas-cyber.github.io/Matrix-Game/",
     techno: ["HTML", "CSS", "Javascript"],
     gitlink: "https://github.com/laurynas-cyber/Matrix-Game",
+    type: "game",
   },
   {
     name: "jobs",
@@ -48,6 +52,7 @@ const data = [
     link: "https://jobslink-react.onrender.com/",
     techno: ["HTML", "SASS", "ReactJS", "React Router"],
     gitlink: "https://github.com/laurynas-cyber/Jobslink-react",
+    type: "browser",
   },
   {
     name: "recovery",
@@ -62,6 +67,7 @@ const data = [
       "MySql",
     ],
     gitlink: "https://github.com/laurynas-cyber/FinalReactBIT",
+    type: "browser",
   },
 ];
 

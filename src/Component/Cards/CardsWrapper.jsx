@@ -10,6 +10,7 @@ import styles from "../styles.module.scss";
 import { FaGithub } from "react-icons/fa";
 import TechnoList from "./TechnoList.jsx";
 import { useState } from "react";
+import Filter from "./Filter.jsx";
 
 export default function CardsWrapper({ open, textStyles }) {
   const [projects, setProjects] = useState(data);
@@ -25,27 +26,9 @@ export default function CardsWrapper({ open, textStyles }) {
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
   useChain([transApi], [0, open ? 0.1 : 0.6]);
 
-  const displayBrowsers = (_) => {
-    setProjects([]);
-    setTimeout((_) => {
-      setProjects([data[4]]);
-
-    }, 1000);
-  };
-
   return (
     <div className={styles.portfolio_content}>
-      <div className={styles.profolio_content_filter}>
-        <animated.button style={textStyles} onClick={(_) => setProjects(data)}>
-          All
-        </animated.button>
-        <animated.button style={textStyles} onClick={displayBrowsers}>
-          Browsers
-        </animated.button>
-        <animated.button style={textStyles} onClick={(_) => setProjects([])}>
-          Games
-        </animated.button>
-      </div>
+      <Filter setProjects={setProjects} textStyles={textStyles} />
       <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
           <animated.div className={styles.warp_item} style={{ ...style }}>
