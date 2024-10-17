@@ -18,6 +18,7 @@ const PAGE_COUNT = 2;
 const TRIANGLES = 11;
 
 export default function Scroll() {
+  const [slideIndex, setSlideIndex] = useState(0);
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
   const [open, set] = useState(false);
@@ -126,19 +127,51 @@ export default function Scroll() {
               <div className={styles.portfolio_filter}>
                 <animated.button style={textStyles}>
                   <span className={styles.line}></span>{" "}
-                  <span className={styles.btn_text_transition}>Portfolio </span>
+                  <span
+                    className={styles.btn_text_transition}
+                    onClick={(_) => setSlideIndex(0)}
+                  >
+                    Portfolio{" "}
+                  </span>
                 </animated.button>
                 <animated.button style={textStyles}>
                   <span className={styles.line}></span>
-                  <span className={styles.btn_text_transition}>Skills</span>
+                  <span
+                    className={styles.btn_text_transition}
+                    onClick={(_) => setSlideIndex(1)}
+                  >
+                    Skills
+                  </span>
                 </animated.button>
                 <animated.button style={textStyles}>
                   <span className={styles.line}></span>
-                  <span className={styles.btn_text_transition}>Contact Me</span>
+                  <span
+                    className={styles.btn_text_transition}
+                    onClick={(_) => setSlideIndex(2)}
+                  >
+                    Contact Me
+                  </span>
                 </animated.button>
               </div>
-
-              <CardsWrapper open={open} textStyles={textStyles} />
+              <div className={styles.portfolio_slider_container}>
+                <CardsWrapper
+                  open={open}
+                  textStyles={textStyles}
+                  slideIndex={slideIndex}
+                />
+                <div
+                  className={styles.portfolio_content}
+                  style={{ translate: `${-100 * slideIndex}%` }}
+                >
+                  Hello
+                </div>
+                <div
+                  className={styles.portfolio_content}
+                  style={{ translate: `${-100 * slideIndex}%` }}
+                >
+                  Bye
+                </div>
+              </div>
             </div>
           </div>
         </animated.div>
