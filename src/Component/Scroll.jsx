@@ -1,6 +1,6 @@
 import { useScroll, animated, useSpring } from "@react-spring/web";
 import img from "../assets/profilio23.jpg";
-import styles from "./styles.module.scss";
+import styles from "./Styles/styles.module.scss";
 import { useRef, useState } from "react";
 import { MdWavingHand } from "react-icons/md";
 import cv from "../assets/CV.pdf";
@@ -8,6 +8,7 @@ import BounceHand from "./BounceHand";
 
 import TextEffect from "./TextEffect";
 import CardsWrapper from "./Cards/CardsWrapper";
+import Skills from "./Cards/Skills";
 
 const X_LINES = 40;
 
@@ -178,12 +179,7 @@ export default function Scroll() {
                   textStyles={textStyles}
                   slideIndex={slideIndex}
                 />
-                <div
-                  className={styles.portfolio_content}
-                  style={{ translate: `${-100 * slideIndex}%` }}
-                >
-                  Hello
-                </div>
+                <Skills slideIndex={slideIndex} styles={styles} />
                 <div
                   className={styles.portfolio_content}
                   style={{ translate: `${-100 * slideIndex}%` }}

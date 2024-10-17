@@ -1,10 +1,8 @@
-
 import data from "../../data/data.js";
-import styles from "../styles.module.scss";
+import styles from "../Styles/styles.module.scss";
 import { animated } from "@react-spring/web";
 
 export default function Filter({ textStyles, setProjects }) {
-  
   const displayBrowsers = (_) => {
     setProjects([]);
     setTimeout((_) => {

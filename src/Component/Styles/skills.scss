@@ -1,0 +1,21 @@
+.skills_container {
+  border: solid 1px red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .skills_sections {
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 100%;
+    border: solid 1px red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .skills {
+      border: solid green 1px;
+      width: 50%;
+      
+    }
+  }
+}

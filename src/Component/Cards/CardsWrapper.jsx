@@ -6,7 +6,7 @@ import {
 } from "@react-spring/web";
 
 import data from "../../data/data.js";
-import styles from "../styles.module.scss";
+import styles from "../Styles/styles.module.scss";
 import { FaGithub } from "react-icons/fa";
 import TechnoList from "./TechnoList.jsx";
 import { useState } from "react";
