@@ -22,7 +22,6 @@ const TRIANGLES = 11;
 
 export default function Scroll() {
   const [slideIndex, setSlideIndex] = useState(0);
-  console.log(slideIndex);
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
   const [open, set] = useState(false);

@@ -13,4 +13,5 @@ export const Other = [
   "React Router",
   "React Spring",
   "Git",
+  "Axios",
 ];
