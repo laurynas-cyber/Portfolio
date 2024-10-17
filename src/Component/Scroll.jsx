@@ -9,6 +9,7 @@ import BounceHand from "./BounceHand";
 import TextEffect from "./TextEffect";
 import CardsWrapper from "./Cards/CardsWrapper";
 import Skills from "./Cards/Skills";
+import ContactMe from "./Cards/ContactMe.jsx";
 
 const X_LINES = 40;
 
@@ -180,12 +181,7 @@ export default function Scroll() {
                   slideIndex={slideIndex}
                 />
                 <Skills slideIndex={slideIndex} styles={styles} />
-                <div
-                  className={styles.portfolio_content}
-                  style={{ translate: `${-100 * slideIndex}%` }}
-                >
-                  Bye
-                </div>
+                <ContactMe slideIndex={slideIndex} styles={styles} />
               </div>
             </div>
           </div>

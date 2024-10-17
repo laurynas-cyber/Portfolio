@@ -1,5 +1,4 @@
 import React from "react";
-import { VscDebugBreakpointLog } from "react-icons/vsc";
 import * as skills from "../../data/skills.js";
 import dataCSS from "../../data/dataCSS.js";
 import SkillsSection from "./SkillsSection.jsx";
