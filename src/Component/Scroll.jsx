@@ -19,6 +19,7 @@ const TRIANGLES = 11;
 
 export default function Scroll() {
   const [slideIndex, setSlideIndex] = useState(0);
+  console.log(slideIndex);
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
   const [open, set] = useState(false);
@@ -125,29 +126,47 @@ export default function Scroll() {
           <div className={styles.dot_item}>
             <div className={styles.portfolio_container}>
               <div className={styles.portfolio_filter}>
-                <animated.button style={textStyles}>
-                  <span className={styles.line}></span>{" "}
+                <animated.button
+                  style={textStyles}
+                  onClick={(_) => setSlideIndex(0)}
+                >
+                  <span
+                    className={styles.line}
+                    style={{ left: slideIndex === 0 && 0 }}
+                  ></span>{" "}
                   <span
                     className={styles.btn_text_transition}
-                    onClick={(_) => setSlideIndex(0)}
+                    style={{ color: slideIndex === 0 && "#263547" }}
                   >
                     Portfolio{" "}
                   </span>
                 </animated.button>
-                <animated.button style={textStyles}>
-                  <span className={styles.line}></span>
+                <animated.button
+                  style={textStyles}
+                  onClick={(_) => setSlideIndex(1)}
+                >
+                  <span
+                    className={styles.line}
+                    style={{ left: slideIndex === 1 && 0 }}
+                  ></span>
                   <span
                     className={styles.btn_text_transition}
-                    onClick={(_) => setSlideIndex(1)}
+                    style={{ color: slideIndex === 1 && "#263547" }}
                   >
                     Skills
                   </span>
                 </animated.button>
-                <animated.button style={textStyles}>
-                  <span className={styles.line}></span>
+                <animated.button
+                  style={textStyles}
+                  onClick={(_) => setSlideIndex(2)}
+                >
+                  <span
+                    className={styles.line}
+                    style={{ left: slideIndex === 2 && 0 }}
+                  ></span>
                   <span
                     className={styles.btn_text_transition}
-                    onClick={(_) => setSlideIndex(2)}
+                    style={{ color: slideIndex === 2 && "#263547" }}
                   >
                     Contact Me
                   </span>
