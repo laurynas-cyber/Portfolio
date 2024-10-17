@@ -10,6 +10,7 @@ import TextEffect from "./TextEffect";
 import CardsWrapper from "./Cards/CardsWrapper";
 import Skills from "./Cards/Skills";
 import ContactMe from "./Cards/ContactMe.jsx";
+import Links from "./Cards/Links.jsx";
 
 const X_LINES = 40;
 
@@ -173,6 +174,21 @@ export default function Scroll() {
                     Contact Me
                   </span>
                 </animated.button>
+                <animated.button
+                  style={textStyles}
+                  onClick={(_) => setSlideIndex(3)}
+                >
+                  <span
+                    className={styles.line}
+                    style={{ left: slideIndex === 3 && 0 }}
+                  ></span>
+                  <span
+                    className={styles.btn_text_transition}
+                    style={{ color: slideIndex === 3 && "#263547" }}
+                  >
+                    Links
+                  </span>
+                </animated.button>
               </div>
               <div className={styles.portfolio_slider_container}>
                 <CardsWrapper
@@ -181,7 +197,9 @@ export default function Scroll() {
                   slideIndex={slideIndex}
                 />
                 <Skills slideIndex={slideIndex} styles={styles} />
+
                 <ContactMe slideIndex={slideIndex} styles={styles} />
+                <Links slideIndex={slideIndex} styles={styles} />
               </div>
             </div>
           </div>

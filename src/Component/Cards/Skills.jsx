@@ -6,7 +6,7 @@ function Skills({ slideIndex, styles }) {
   return (
     <div
       className={styles.portfolio_content}
-      style={{ translate: `${-100 * slideIndex}%` }}
+      style={{ translate: `${-100 * slideIndex}%`, backgroundColor: "#263547" }}
     >
       <div className={styles.skills_container}>
         <SkillsSection
