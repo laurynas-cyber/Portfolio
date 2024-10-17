@@ -1,6 +1,7 @@
 import React from "react";
-import { FaCheck } from "react-icons/fa";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
+import * as skills from "../../data/skills.js";
+
 function Skills({ slideIndex, styles }) {
   return (
     <div
@@ -12,30 +13,12 @@ function Skills({ slideIndex, styles }) {
           <h2>FrontEnd </h2>
           <div className={styles.skills}>
             <ul>
-              <li>
-                <VscDebugBreakpointLog />
-                Html
-              </li>
-              <li>
-                <VscDebugBreakpointLog />
-                CSS
-              </li>
-              <li>
-                <VscDebugBreakpointLog />
-                SASS
-              </li>
-              <li>
-                <VscDebugBreakpointLog />
-                Bootstrap
-              </li>
-              <li>
-                <VscDebugBreakpointLog />
-                Javascript
-              </li>
-              <li>
-                <VscDebugBreakpointLog />
-                ReactJS
-              </li>
+              {skills.FrontEnd.map((f) => (
+                <li key={f}>
+                  <VscDebugBreakpointLog />
+                  {f}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
