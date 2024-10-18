@@ -3,7 +3,6 @@
 .contact_container {
   min-height: 550px;
   width: 100%;
-  border: solid 1px red;
   display: flex;
   flex-direction: column;
 
@@ -31,8 +30,15 @@
       textarea {
         max-width: 100%;
         min-width: 80%;
-        max-height: 200px;
+        max-height: 250px;
         min-height: 100px;
+        padding: 5px;
+        font-size: 20px;
+        outline: none;
+        background: none;
+        box-shadow: none;
+        border-style: none;
+        border: solid 2px $white;
       }
       input {
         padding: 5px;
@@ -44,14 +50,15 @@
         font-size: 20px;
         transition: all ease-in 0.3s;
         color: $dark;
-       
       }
       input:focus {
         border-bottom: orange 2px solid;
         background: rgba(255, 254, 254, 0.147);
       }
-      input:focus .sub {
-        color: orange;
+
+      textarea:focus {
+        border: orange 2px solid;
+        background: rgba(255, 254, 254, 0.147);
       }
     }
   }
