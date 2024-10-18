@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ContactMe({ slideIndex, styles }) {
+  const [form, setForm] = useState({
+    subject: "",
+    email: "",
+    message: "",
+  });
+
+  const handleForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
   return (
     <div
       className={styles.portfolio_content}
@@ -11,15 +20,30 @@ export default function ContactMe({ slideIndex, styles }) {
         <form action="">
           <div className={styles.contact_wrap}>
             <span className={styles.sub}>Subject</span>
-            <input type="text" name="subject" />
+            <input
+              value={form.subject}
+              type="text"
+              name="subject"
+              onChange={handleForm}
+            />
           </div>
           <div className={styles.contact_wrap}>
             <span>Email</span>
-            <input type="text" name="email" />
+            <input
+              value={form.email}
+              type="text"
+              name="email"
+              onChange={handleForm}
+            />
           </div>
           <div className={styles.contact_wrap}>
             <span>Message</span>
-            <textarea name="message" id=""></textarea>
+            <textarea
+              value={form.message}
+              name="message"
+              onChange={handleForm}
+              id=""
+            ></textarea>
           </div>
         </form>
       </div>
