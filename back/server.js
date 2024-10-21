@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Route to handle form submission
+
 app.post("/send-email", (req, res) => {
   const { subject, email, message } = req.body;
 
