@@ -29,7 +29,7 @@ app.post("/send-email", (req, res) => {
     text: `You have received a new message from (${email}):\n\n${message}`,
   };
 
-  // Send the email
+  
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error);
@@ -40,7 +40,7 @@ app.post("/send-email", (req, res) => {
   });
 });
 
-// Start the server
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
