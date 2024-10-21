@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post("/send-email", (req, res) => {
   const { subject, email, message } = req.body;
 
-  // Create Nodemailer transporter
+
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
