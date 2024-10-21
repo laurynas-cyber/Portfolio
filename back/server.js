@@ -21,7 +21,7 @@ app.post("/send-email", (req, res) => {
     },
   });
 
-  // Email options
+
   let mailOptions = {
     from: email,
     to: process.env.EMAIL_USER,
