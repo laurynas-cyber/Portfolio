@@ -1,0 +1,17 @@
+.links_container {
+
+  width: 100%;
+  display: flex;
+
+  .links_QR_container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 70%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
