@@ -12,6 +12,7 @@ import Skills from "./Cards/Skills.jsx";
 import ContactMe from "./Cards/ContactMe.jsx";
 import Links from "./Cards/Links.jsx";
 import FilterBtn from "./Cards/FilterBtn.jsx";
+import ScrollDown from "./Animations/ScrollDown.jsx";
 
 const X_LINES = 40;
 
@@ -60,6 +61,7 @@ export default function Scroll() {
               <MdWavingHand style={{ margin: "0px 5px" }} />
               <TextEffect />
               <BounceHand styles={styles} />
+              <ScrollDown styles={styles} />
             </p>
             <a
               href={cv}
