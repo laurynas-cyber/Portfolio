@@ -27,13 +27,16 @@ export default function CardsWrapper({ open, textStyles, slideIndex }) {
   useChain([transApi], [0, open ? 0.1 : 0.6]);
 
   return (
-    <div className={styles.portfolio_content} style={{translate: `${-100 * slideIndex}%`}}>
+    <div
+      className={styles.portfolio_content}
+      style={{ translate: `${-100 * slideIndex}%` }}
+    >
       <Filter setProjects={setProjects} textStyles={textStyles} />
       <animated.div className={styles.wrap_container}>
         {transition((style, item) => (
           <animated.div className={styles.warp_item} style={{ ...style }}>
             <a
-              href={item.link}
+              href={item.link ? item.link : null}
               target="_blank"
               rel="noreferrer"
               className={styles.warp_item_link}

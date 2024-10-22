@@ -135,3 +135,11 @@
 .warp_item_technologies:hover {
   bottom: 0px;
 }
+
+.filter_btns {
+  color: $dark;
+  transition: all ease 0.3s;
+  &:hover {
+    color: orange;
+  }
+}

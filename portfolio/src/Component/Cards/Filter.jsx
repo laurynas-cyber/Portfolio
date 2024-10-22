@@ -26,13 +26,13 @@ export default function Filter({ textStyles, setProjects }) {
   return (
     <div className={styles.profolio_content_filter}>
       <animated.button style={textStyles} onClick={displayAll}>
-        All
+        <span className={styles.filter_btns}>All</span>
       </animated.button>
       <animated.button style={textStyles} onClick={displayBrowsers}>
-        Browsers
+        <span className={styles.filter_btns}>Browsers</span>
       </animated.button>
       <animated.button style={textStyles} onClick={displayGames}>
-        Games
+        <span className={styles.filter_btns}>Games</span>
       </animated.button>
     </div>
   );
