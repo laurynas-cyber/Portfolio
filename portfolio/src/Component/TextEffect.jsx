@@ -1,6 +1,7 @@
 import { useSprings, animated } from "@react-spring/web";
 import React, { useEffect, useState } from "react";
 import CursorAnimation from "./CursorAnimation";
+import rand from "../data/rand.js";
 
 export default function TextEffect() {
   const text = `My name is Laurynas, motivated and fast learning personality. I am responsible, loyal, detail orientated, team player, with analytical skills and efficient problem-solving. I finished programming courses with {Javascript} and have basics and advanced FrontEnd programming knowledge and hopefully get opportunity to apply it to the growth of successfull company. During my freetime I build projects to explore the possibilities of {Javascript} and here I want to share my portfolio with you.`;
@@ -30,7 +31,7 @@ export default function TextEffect() {
     <>
       {springs.map((props, i) => (
         <>
-          <animated.span key={"ka" + i} style={props}>
+          <animated.span key={rand(0, 10000)} style={props}>
             {letters[i]}
           </animated.span>
           {i === index - 1 && index !== springs.length && <span>|</span>}

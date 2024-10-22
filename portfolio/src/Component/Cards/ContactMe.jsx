@@ -10,7 +10,7 @@ export default function ContactMe({ slideIndex, styles }) {
   });
   const [responseMessage, setResponseMessage] = useState("");
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const { errors, validate, setServerErrors } = useRegister();
+  const { errors, validate } = useRegister();
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };

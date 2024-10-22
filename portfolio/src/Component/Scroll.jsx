@@ -11,6 +11,7 @@ import CardsWrapper from "./Cards/CardsWrapper.jsx";
 import Skills from "./Cards/Skills.jsx";
 import ContactMe from "./Cards/ContactMe.jsx";
 import Links from "./Cards/Links.jsx";
+import FilterBtn from "./Cards/FilterBtn.jsx";
 
 const X_LINES = 40;
 
@@ -25,6 +26,7 @@ export default function Scroll() {
   const containerRef = useRef(null);
   const barContainerRef = useRef(null);
   const [open, set] = useState(false);
+  const FilterArr = useRef(["Portfolio", "Skills", "Contact Me", "Links"]);
   const [textStyles, textApi] = useSpring(() => ({
     y: "100%",
   }));
@@ -128,66 +130,16 @@ export default function Scroll() {
           <div className={styles.dot_item}>
             <div className={styles.portfolio_container}>
               <div className={styles.portfolio_filter}>
-                <animated.button
-                  style={textStyles}
-                  onClick={(_) => setSlideIndex(0)}
-                >
-                  <span
-                    className={styles.line}
-                    style={{ left: slideIndex === 0 && 0 }}
-                  ></span>{" "}
-                  <span
-                    className={styles.btn_text_transition}
-                    style={{ color: slideIndex === 0 && "#263547" }}
-                  >
-                    Portfolio{" "}
-                  </span>
-                </animated.button>
-                <animated.button
-                  style={textStyles}
-                  onClick={(_) => setSlideIndex(1)}
-                >
-                  <span
-                    className={styles.line}
-                    style={{ left: slideIndex === 1 && 0 }}
-                  ></span>
-                  <span
-                    className={styles.btn_text_transition}
-                    style={{ color: slideIndex === 1 && "#263547" }}
-                  >
-                    Skills
-                  </span>
-                </animated.button>
-                <animated.button
-                  style={textStyles}
-                  onClick={(_) => setSlideIndex(2)}
-                >
-                  <span
-                    className={styles.line}
-                    style={{ left: slideIndex === 2 && 0 }}
-                  ></span>
-                  <span
-                    className={styles.btn_text_transition}
-                    style={{ color: slideIndex === 2 && "#263547" }}
-                  >
-                    Contact Me
-                  </span>
-                </animated.button>
-                <animated.button
-                  style={textStyles}
-                  onClick={(_) => setSlideIndex(3)}
-                >
-                  <span
-                    className={styles.line}
-                    style={{ left: slideIndex === 3 && 0 }}
-                  ></span>
-                  <span
-                    className={styles.btn_text_transition}
-                    style={{ color: slideIndex === 3 && "#263547" }}
-                  >
-                    Links
-                  </span>
-                </animated.button>
+                {FilterArr.current.map((ref, index) => (
+                  <FilterBtn
+                    key={ref}
+                    name={ref}
+                    num={index}
+                    textStyles={textStyles}
+                    setSlideIndex={setSlideIndex}
+                    slideIndex={slideIndex}
+                  />
+                ))}
               </div>
               <div className={styles.portfolio_slider_container}>
                 <CardsWrapper
