@@ -4,7 +4,6 @@
 @import "./contactme.scss";
 @import "./links.scss";
 
-
 .body {
   background-color: #171717;
   height: 100%;
@@ -36,7 +35,7 @@
 
 .bar {
   height: 1vh;
-  background-color: aqua;
+  background-color: $cvBlue;
 }
 
 .ScrollBar_container {
@@ -49,14 +48,14 @@
 
 .pipe {
   width: 20px;
-  height: 100%;
+  height: 110%;
 
   border-top: none;
   border-bottom: none;
   position: relative;
 
   .liquid {
-    background-color: aqua;
+    background-color: $cvBlue;
     width: 100%;
     height: 10%;
     z-index: 1;
