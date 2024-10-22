@@ -60,7 +60,9 @@ export default function ContactMe({ slideIndex, styles }) {
               id=""
             ></textarea>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className={styles.submit_btn}>
+            Submit
+          </button>
         </form>
         {responseMessage && <p>{responseMessage}</p>}
       </div>
