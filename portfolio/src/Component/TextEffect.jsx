@@ -30,12 +30,10 @@ export default function TextEffect() {
   return (
     <>
       {springs.map((props, i) => (
-        <>
-          <animated.span key={rand(0, 10000)} style={props}>
-            {letters[i]}
-          </animated.span>
+        <React.Fragment key={i}>
+          <animated.span style={props}>{letters[i]}</animated.span>
           {i === index - 1 && index !== springs.length && <span>|</span>}
-        </>
+        </React.Fragment>
       ))}
       {index === springs.length && <CursorAnimation />}
     </>

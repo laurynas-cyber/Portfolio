@@ -44,9 +44,14 @@ export default function CardsWrapper({ open, textStyles, slideIndex }) {
               <img src={item.css} alt={item.name} />
               <div className={styles.warp_item_technologies}>
                 <div className={styles.warp_item_technologies_wrapper}>
-                  <a href={item.gitlink} target="_blank" rel="noreferrer">
+                  <div
+                
+                    onClick={() => window.open(item.gitlink, "_blank")}
+                
+                    className={styles.gitlink}
+                  >
                     <FaGithub />
-                  </a>
+                  </div>
                   <TechnoList styles={styles} arrData={item.techno} />
                 </div>
               </div>

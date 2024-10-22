@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useRegister from "../Validations/useRegister";
 
@@ -15,14 +15,21 @@ export default function ContactMe({ slideIndex, styles }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  useEffect(
+    (_) => {
+      setResponseMessage(errors.email);
+    },
+    [errors]
+  );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonDisabled(true);
     if (!validate(form)) {
-      setButtonDisabled(false);
-      setResponseMessage(errors.email);
+
       return;
     }
+
+    setButtonDisabled(true);
     try {
       const response = await axios.post(
         "http://localhost:5000/send-email",
