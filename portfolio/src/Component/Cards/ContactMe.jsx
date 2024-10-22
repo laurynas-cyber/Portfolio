@@ -3,6 +3,7 @@ import axios from "axios";
 import useRegister from "../Validations/useRegister";
 
 export default function ContactMe({ slideIndex, styles }) {
+  const serverUrl = "http://localhost:5000/";
   const [form, setForm] = useState({
     subject: "",
     email: "",
@@ -25,14 +26,13 @@ export default function ContactMe({ slideIndex, styles }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate(form)) {
-
       return;
     }
 
     setButtonDisabled(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/send-email",
+        "https://portfolio-po5b.onrender.com/send-email",
         form
       );
       setResponseMessage(response.data);
