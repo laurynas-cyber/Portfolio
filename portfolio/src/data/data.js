@@ -57,7 +57,7 @@ const data = [
   {
     name: "recovery",
     css: recovery,
-
+    link: "https://finalreactrecovery.onrender.com/",
     techno: [
       "Bootstrap",
       "SASS",

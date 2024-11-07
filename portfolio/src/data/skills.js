@@ -7,4 +7,4 @@ export const FrontEnd = [
   "ReactJS",
 ];
 export const BackEnd = ["Node.js", "Express.js", "MySql"];
-export const Other = ["React Router", "React Spring", "Git", "Axios"];
+export const Other = ["React Router", "React Spring", "Git", "Axios", "Vite"];
