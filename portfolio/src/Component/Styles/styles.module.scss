@@ -10,8 +10,26 @@
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  scrollbar-width: none;
+  // overflow-x: hidden;
+  // scrollbar-width: none;
+  // scrollbar-width: thin;
 }
+
+.body::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.body::-webkit-scrollbar-track {
+  background: #171717; /* Background color of the scrollbar track */
+}
+
+.body::-webkit-scrollbar-thumb {
+  background-color: red; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Rounded corners for the scrollbar handle */
+  border: 2px solid #171717; /* Adds padding around the handle */
+}
+
+
 
 .full__page {
   width: 100vw;

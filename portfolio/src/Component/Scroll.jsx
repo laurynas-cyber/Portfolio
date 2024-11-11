@@ -50,6 +50,10 @@ export default function Scroll() {
   });
 
   return (
+    // <div
+    //   className={styles.my_element}
+    //   style={{ overflowY: "scroll", height: "300px" }}
+    // >
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
         <div className={styles.about_container}>
@@ -72,7 +76,7 @@ export default function Scroll() {
               <MdWavingHand style={{ margin: "0px 5px" }} />
               <TextEffect />
               <BounceHand styles={styles} />
-              <ScrollDown styles={styles}  />
+              <ScrollDown styles={styles} />
             </p>
             <a
               href={cv}
@@ -175,5 +179,6 @@ export default function Scroll() {
         </div>
       ))}
     </div>
+    // </div>
   );
 }
