@@ -54,6 +54,17 @@ export default function Scroll() {
       <div className={styles.animated__layers}>
         <div className={styles.about_container}>
           <div className={styles.about}>
+            <button
+              style={{ cursor: "pointer", pointerEvents: "all" }}
+              onClick={() =>
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: "smooth",
+                })
+              }
+            >
+              Press
+            </button>
             <p style={{ whiteSpace: "pre-wrap" }}>
               <img src={img} alt="profilio"></img>
               <span className={styles.me}>About me</span>
@@ -61,7 +72,7 @@ export default function Scroll() {
               <MdWavingHand style={{ margin: "0px 5px" }} />
               <TextEffect />
               <BounceHand styles={styles} />
-              <ScrollDown styles={styles} />
+              <ScrollDown styles={styles}  />
             </p>
             <a
               href={cv}
