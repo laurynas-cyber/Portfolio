@@ -18,12 +18,17 @@ export default function ContactMe({ slideIndex, styles }) {
 
   useEffect(
     (_) => {
+      if (responseMessage) {
+        return;
+      }
       setResponseMessage(errors.email);
+      setButtonDisabled(false);
     },
     [errors]
   );
 
   const handleSubmit = async (e) => {
+    setResponseMessage("");
     e.preventDefault();
     if (!validate(form)) {
       return;
@@ -31,6 +36,7 @@ export default function ContactMe({ slideIndex, styles }) {
 
     setButtonDisabled(true);
     try {
+      setResponseMessage("Waiting for network...");
       const response = await axios.post(
         "https://portfolio-po5b.onrender.com/send-email",
         form
@@ -49,6 +55,7 @@ export default function ContactMe({ slideIndex, styles }) {
     >
       <div className={styles.contact_container}>
         <h2>Write me a message </h2>
+
         <div
           className={
             responseMessage
