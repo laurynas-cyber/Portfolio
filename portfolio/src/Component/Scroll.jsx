@@ -50,25 +50,10 @@ export default function Scroll() {
   });
 
   return (
-    // <div
-    //   className={styles.my_element}
-    //   style={{ overflowY: "scroll", height: "300px" }}
-    // >
     <div ref={containerRef} className={styles.body}>
       <div className={styles.animated__layers}>
         <div className={styles.about_container}>
           <div className={styles.about}>
-            <button
-              style={{ cursor: "pointer", pointerEvents: "all" }}
-              onClick={() =>
-                window.scrollTo({
-                  top: document.body.scrollHeight,
-                  behavior: "smooth",
-                })
-              }
-            >
-              Press
-            </button>
             <p style={{ whiteSpace: "pre-wrap" }}>
               <img src={img} alt="profilio"></img>
               <span className={styles.me}>About me</span>
@@ -179,6 +164,5 @@ export default function Scroll() {
         </div>
       ))}
     </div>
-    // </div>
   );
 }

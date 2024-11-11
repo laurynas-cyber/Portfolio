@@ -10,26 +10,22 @@
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  // overflow-x: hidden;
-  // scrollbar-width: none;
-  // scrollbar-width: thin;
+  overflow-x: hidden;
 }
 
 .body::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
 }
 
 .body::-webkit-scrollbar-track {
-  background: #171717; /* Background color of the scrollbar track */
+  background: #2f2f2f;
 }
 
 .body::-webkit-scrollbar-thumb {
-  background-color: red; /* Color of the scrollbar handle */
-  border-radius: 10px; /* Rounded corners for the scrollbar handle */
-  border: 2px solid #171717; /* Adds padding around the handle */
+  background-color: $cvBlue;
+  border-radius: 10px;
+  border: 2px solid #171717;
 }
-
-
 
 .full__page {
   width: 100vw;
